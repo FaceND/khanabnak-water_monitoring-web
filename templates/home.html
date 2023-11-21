@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSRU - Water Monitoring</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Kanit"
+      rel="stylesheet"
+    />
+    <link
+      rel="Icon"
+      href="{{ url_for('static', filename='assets/images/icons/sci_logo.png') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/effects.css') }}"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <img
+        class="parallax-image"
+        src="{{ url_for('static', filename='assets/images/home_page_river.jpg') }}"
+        alt="Upper Image"
+      />
+      <nav>
+        <a href="/home">
+          <div class="logo">
+            <div class="img-logo">
+              <img
+                src="{{ url_for('static', filename='assets/images/icons/sci_logo.png') }}"
+                alt="Icon"
+              />
+            </div>
+            <span>SSRU - Water Monitoring</span>
+          </div>
+        </a>
+      </nav>
+      <div class="center-text">คุณภาพน้ำตำบลขนาบนาก อ.ปากพนัง</div>
+      <div class="overlay-item">
+        <div class="menu-text">
+          <a href="https://th.wikipedia.org/wiki/%E0%B8%99%E0%B9%89%E0%B8%B3"
+            >น้ำ</a
+          >
+          <div class="dropdown-content">
+            <p>
+              น้ำเป็นปัจจัยที่สำคัญของสิ่งมีชีวิต การเพิ่มของประชากร
+              การขยายตัวของชุมชนเมือง และการพัฒนาทางด้านอุตสาหกรรม
+              มีผลทำให้มีการใช้น้ำปริมาณมาก ได้ก่อให้เกิดปัญหาคุณภาพน้ำ และ
+              แม่น้ำลำคลอง และชายฝั่งทะเล รวมถึงความเป็นอยู่ของมนุษย์
+            </p>
+          </div>
+        </div>
+        <div class="menu-text">
+          <a
+            href="https://th.wikipedia.org/wiki/%E0%B8%A1%E0%B8%A5%E0%B8%9E%E0%B8%B4%E0%B8%A9%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B8%99%E0%B9%89%E0%B8%B3"
+            >มลพิษทางน้ำ</a
+          >
+          <div class="dropdown-content">
+            <p>
+              การปนเปื้อนของแหล่งน้ำ
+              สาเหตุส่วนใหญ่เกิดจากการใช้ประโยชน์จากกิจกรรมต่างๆของมนุษย์
+              ทั้งน้ำทิ้งจากแหล่งชุมชน และโรงงานอุตสาหกรรม
+              ทำให้คุณภาพของน้ำเปลี่ยนแปลงไปในทางที่เสื่อมโทรมลง
+              ยังผลให้การใช้ประโยชน์จากน้ำนั้นไม่ได้
+            </p>
+          </div>
+        </div>
+        <div class="menu-text">
+          <a href="https://en.wikipedia.org/wiki/Water_quality">คุณภาพน้ำ</a>
+          <div class="dropdown-content">
+            <p>
+              การตรวจสอบคุณภาพน้ำเป็นพื้นฐานของการจัดการน้ำอย่างยั่งยืน
+              ให้ข้อมูลที่จำเป็น ซึ่งระบุลักษณะทางกายภาพ เคมี
+              และหรือสถานะทางชีววิทยาของทรัพยากรน้ำ
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-text">
+      <div class="block animatable fadeInUp">
+        <h3>คุณภาพน้ำในตําบลขนาบนาค อําเภอปากพนัง จังหวัดนครศรีธรรมราช</h3>
+      </div>
+      <div class="block animatable fadeInUp">
+        <h1>โดย 4 สถานีตรวจวัด</h1>
+      </div>
+    </div>
+    <div class="main-content">
+      <a href="/result" class="cards" id="Klong_Bangdee">
+        <img
+          src="{{ url_for('static', filename='assets/images/khanabnak_stations/khanabnak_img1.jpg') }}"
+          alt="Card 1 Image"
+        />
+        <p>คลองบางดี</p>
+      </a>
+      <a href="/result" class="cards" id="Klong_Mabok">
+        <img
+          src="{{ url_for('static', filename='assets/images/khanabnak_stations/khanabnak_img2.jpg') }}"
+          alt="Card 2 Image"
+        />
+        <p>คลองมาบออก</p>
+      </a>
+      <a href="/result" class="cards" id="Wat_Bang_Udom">
+        <img
+          src="{{ url_for('static', filename='assets/images/khanabnak_stations/khanabnak_img3.jpg') }}"
+          alt="Card 3 Image"
+        />
+        <p>วัดบางอุดม</p>
+      </a>
+      <a href="/result" class="cards" id="Moo_2_Khanabnak">
+        <img
+          src="{{ url_for('static', filename='assets/images/khanabnak_stations/khanabnak_img4.jpg') }}"
+          alt="Card 4 Image"
+        />
+        <p>หมู่บ้านเศรษฐกิจพอเพียงป่าขลู (หมู่ที่2)</p>
+      </a>
+      <script>
+        var cards = document.querySelectorAll(".cards");
+        cards.forEach(function (card) {
+          card.addEventListener("click", function (s) {
+            const station = this.id;
+            s.preventDefault();
+            localStorage.setItem("station-name", station);
+            window.location.href = "/result?station_name=" + station;
+          });
+        });
+      </script>
+    </div>
+    <div class="box-aboutme">
+      <div class="container-aboutme">
+        <div class="block animatable fadeInUp">
+          <h1>เกี่ยวกับเรา</h1>
+        </div>
+        <div class="block animatable fadeInUp">
+          <p>
+            <strong>SSRU - WATER MONITORING</strong>
+            เป็นระบบที่ถูกพัฒนาขึ้นเพื่อให้บริการตรวจวัดและเฝ้าระวังคุณภาพน้ำออนไลน์ในตำบลขนาบนาค
+            อำเภอปากพนัง จังหวัดนครศรีธรรมราช
+            โดยเราได้ตั้งสถานีตรวจวัดที่ตั้งในจุดสำคัญทั้งหมด 4
+            จุดภายในพื้นที่นี้
+            เพื่อทำการวัดค่าต่างๆที่สำคัญเพื่อเข้าใจและรายงานคุณภาพน้ำในพื้นที่นี้อย่างเป็นระบบ
+          </p>
+        </div>
+        <div class="block animatable fadeInUp">
+          <h3>วัตถุประสงค์</h3>
+        </div>
+        <div class="block animatable fadeInUp">
+          <p>
+            การพัฒนา SSRU - WATER MONITORING
+            มีวัตถุประสงค์หลักคือการให้บริการข้อมูลคุณภาพน้ำที่ถูกต้องและทันสมัยในพื้นที่ขนาบนาค
+            อำเภอปากพนัง จังหวัดนครศรีธรรมราช
+            โดยนำเสนอข้อมูลที่สะท้อนสถานะคุณภาพน้ำในขณะนั้น
+            ทำให้ประชาชนและหน่วยงานที่เกี่ยวข้องสามารถตรวจสอบและดำเนินการตามได้อย่างมีประสิทธิภาพ
+          </p>
+        </div>
+        <div class="block animatable fadeInUp">
+          <h3>ข้อมูลจากสถานีตรวจวัด</h3>
+        </div>
+        <div class="block animatable fadeInUp">
+          <p>
+            SSRU - WATER MONITORING นำเสนอข้อมูลที่ได้มาจากสถานีตรวจวัดทั้ง 4
+            จุดในตำบลขนาบนาค โดยครอบคลุมค่าต่างๆที่สำคัญ เช่น อุณหภูมิ,
+            ความเค็ม, ออกซิเจน, การนำไฟฟ้า, และอื่นๆ
+            ที่สามารถให้ข้อมูลที่สมบูรณ์แบบและน่าเชื่อถือ
+          </p>
+        </div>
+        <div class="block animatable fadeInUp">
+          <h3>การพัฒนาอนาคต</h3>
+        </div>
+        <div class="block animatable fadeInUp">
+          <p>
+            เรามุ่งมั่นที่จะพัฒนา SSRU - WATER MONITORING
+            เพื่อให้บริการที่ดีที่สุดและเป็นประโยชน์สูงสุดในการรักษาคุณภาพน้ำในพื้นที่นี้
+            รวมถึงการพัฒนาความสามารถในการทำนายและการแจ้งเตือนคุณภาพน้ำที่อาจมีปัญหา
+            และการให้ข้อมูลที่สามารถเข้าถึงได้ง่ายและทันที
+          </p>
+        </div>
+      </div>
+      <div class="waves"></div>
+    </div>
+    <!-- Site footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="col-footer">
+          <h2>ที่อยู่</h2>
+          <p>เลขที่ 1 ถ.อู่ทองนอก เขตดุสิต กรุงเทพฯ</p>
+        </div>
+        <div class="col-footer-middle">
+          <h1>SSRU - Water Monitoring</h1>
+          <h3>ตรวจวัดและเฝ้าระวังคุณภาพน้ำออนไลน์ในตำบลขนาบนาค</h3>
+          <h4>ดาวน์โหลดแอปพลิเคชัน</h4>
+          <div class="store-icons">
+            <div class="app-icon">
+              <a
+                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/images/footer/appstore-footer-white.png') }}"
+                  class="app-icon"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="app-icon">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.khanabnak.water&hl=th-TH"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/images/footer/playstore-footer-white.png') }}"
+                  class="app-icon"
+                  alt=""
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-footer">
+          <h2>ติดต่อเรา</h2>
+          <p>อีเมล : ssruwatermonitoring.com</p>
+        </div>
+      </div>
+      <hr class="border-footer-line" />
+      <div class="bottom-footer">
+        <div class="copyrights">
+          &copy; Copyright 2023 - SSRU All rights reserved
+        </div>
+      </div>
+    </footer>
+    <script src="{{ url_for('static', filename='styles/effects.js') }}"></script>
+  </body>
+</html>

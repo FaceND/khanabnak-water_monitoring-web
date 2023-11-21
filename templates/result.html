@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Kanit"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='assets/images/icons/sci_logo.png')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/result_style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/effects.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <a href="/home">
+          <div class="logo">
+            <div class="img-logo">
+              <img
+                src="{{ url_for('static', filename='assets/images/icons/sci_logo.png') }}"
+                alt="Icon"
+              />
+            </div>
+            <span>SSRU - Water Monitoring</span>
+          </div>
+        </a>
+      </nav>
+      <div class="station-text">
+        <div class="block animatable fadeInUp">
+          <p>{{ title }}</p>
+        </div>
+      </div>
+      <div class="date-time"></div>
+      <script>
+        const formattedDate = new Date()
+          .toLocaleString("th-TH", {
+            hour: "numeric",
+            minute: "numeric",
+            second: "numeric",
+            hour12: false,
+          })
+          .replace(",", "")
+          .replace(/:.. /, " ");
+
+        document.querySelector(".date-time").innerHTML =
+          "ณ เวลา : " + formattedDate;
+      </script>
+      <div class="info-section">
+        <!-- first Cart -->
+        <div class="card" id="card1">
+          <article>
+            <div class="block animatable fadeIn">
+              <h2>{{ temp }}</h2>
+            </div>
+            <h3>ºC</h3>
+            <p>Celsius</p>
+            <hr class="line-card" />
+            <section>
+              <button>อุณหภูมิ</button>
+            </section>
+          </article>
+        </div>
+        <!-- Second Cart -->
+        <div class="card" id="card2">
+          <article>
+            <div class="block animatable fadeIn">
+              <h2>{{ salinity }}</h2>
+            </div>
+            <h3>ppt</h3>
+            <p>parts per trillion</p>
+            <hr class="line-card" />
+            <section>
+              <button>ความเค็ม</button>
+            </section>
+          </article>
+        </div>
+        <!-- Thirth Cart -->
+        <div class="card" id="card3">
+          <article>
+            <div class="block animatable fadeIn">
+              <h2>{{ electcon }}</h2>
+            </div>
+            <h3>µS/cm</h3>
+            <p>microSeimens per centimeter</p>
+            <hr class="line-card" />
+            <section>
+              <button>ความนำไฟฟ้า</button>
+            </section>
+          </article>
+        </div>
+        <!-- Fourth Cart -->
+        <div class="card" id="card4">
+          <article>
+            <div class="block animatable fadeIn">
+              <h2>{{ oxygen }}</h2>
+            </div>
+            <h3>mg/L</h3>
+            <p>Milligrams per litre</p>
+            <hr class="line-card" />
+            <section>
+              <button>ออกซิเจน</button>
+            </section>
+          </article>
+        </div>
+        <!-- Fifth Cart -->
+        <div class="card" id="card5">
+          <article>
+            <div class="block animatable fadeIn">
+              <h2>{{ BOD }}</h2>
+            </div>
+            <h3>mg/L</h3>
+            <p>Milligrams per litre</p>
+            <hr class="line-card" />
+            <section>
+              <button>ออกซิเจนที่จุลชีพใช้ในการย่อยสลายสารอินทรีย์</button>
+            </section>
+          </article>
+        </div>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='styles/effects.js') }}"></script>
+  </body>
+</html>
