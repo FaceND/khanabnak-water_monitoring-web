@@ -3,14 +3,86 @@
   --items: 3;
   --item-width: calc(var(--menu-width) / var(--items));
   --border-footer: 0 2rem 0;
+  --dark-toggle-bg: #f07493;
 }
 
-.header {
-  position: relative;
-  overflow: hidden;
-  height: 53vh;
+:root[data-theme="dark"] {
+  --primary-color: rgba(0, 0, 0, 0.99);
+  --sub-color: white;
+  --muted-color: lightgrey;
+
+  --primary-text: white;
+  --sub-text: black;
+  --muted-text: lightgrey;
+  --hover-text: rgba(255, 255, 255, 0.5);
+
+  --logo-text: white;
+
+  --menu-text: lightgrey;
+
+  --card-text: white;
+
+  --box-aboutus: white;
+  --box-aboutus-text: rgba(0, 0, 0, 0.99);
+
+  --header-linear-gradient: linear-gradient(
+    rgba(0, 0, 0, 0.384),
+    rgba(0, 0, 0, 0.953)
+  );
+
+  --card-color: rgba(0, 0, 0, 0.99);
+  --card-linear-gradient: linear-gradient(
+    rgba(0, 0, 0, 0.158),
+    rgba(0, 0, 0, 0.849)
+  );
+  --card-hover: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+
+  --wave: rgba(0, 0, 0, 0.99);
+  --wave-shadow: rgba(255, 255, 255, 0.404);
+
+  --box-aboutus-top: 70px;
 }
 
+:root[data-theme="light"] {
+  --primary-color: white;
+  --sub-color: #f07493;
+  --muted-color: darkgrey;
+
+  --primary-text: black;
+  --sub-text: white;
+  --muted-text: black;
+  --hover-text: #f07493;
+
+  --logo-text: white;
+
+  --menu-text: #ffc2d1;
+
+  --card-text: white;
+
+  --box-aboutus: white;
+  --box-aboutus-text: black;
+
+  --header-linear-gradient: linear-gradient(
+    rgb(0, 0, 0, 0.044),
+    rgb(0, 0, 0, 1)
+  );
+
+  --card-color: #ffc2d1;
+  --card-linear-gradient: linear-gradient(
+    rgba(0, 0, 0, 0.158),
+    rgba(0, 0, 0, 0.849)
+  );
+  --card-hover: 0px 30px 18px -8px rgba(0, 0, 0, 0);
+
+  --wave: #ffc2d1;
+  --wave-shadow: black;
+
+  --box-aboutus-top: 0px;
+}
+
+/* ================================================= */
+/* General styles */
+/* ================================================= */
 body,
 html {
   margin: 0;
@@ -22,7 +94,7 @@ html {
 }
 
 body {
-  background-color: rgba(0, 0, 0, 0.99);
+  background-color: var(--primary-color);
   -webkit-justify-content: center;
   -webkit-align-items: center;
   justify-content: center;
@@ -30,16 +102,26 @@ body {
   font-family: "Poppins", "Kanit", sans-serif !important;
   letter-spacing: 0.025rem !important;
   overflow-x: hidden;
+  transition: background-color 0.5s, color 0.5s;
 }
 
+/* ================================================= */
+/* Header */
+/* ================================================= */
 .header::before {
   content: "";
   height: 100%;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.384), rgba(0, 0, 0, 0.953));
+  background: var(--header-linear-gradient);
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.header {
+  position: relative;
+  overflow: hidden;
+  height: 53vh;
 }
 
 .header img {
@@ -49,11 +131,16 @@ body {
   z-index: 1;
 }
 
+/* ================================================= */
+/* Nav */
+/* ================================================= */
 nav {
   position: absolute;
+  display: flex;
+  justify-content: space-between;
   top: 17px;
   left: 30px;
-  color: white;
+  color: var(--logo-text);
   width: 100%;
 }
 
@@ -61,6 +148,9 @@ nav a {
   text-decoration: none;
 }
 
+/* ================================================= */
+/* Nav - Logo */
+/* ================================================= */
 .logo {
   text-decoration: none;
   display: flex;
@@ -76,20 +166,86 @@ nav a {
 
 .logo span {
   text-decoration: none;
-  color: white;
+  color: var(--logo-text);
   font-size: 1.3rem;
 }
 
+/* ================================================= */
+/* Nav-theme - toggle */
+/* ================================================= */
+.toggle-label {
+  /* position: absolute; */
+  margin-right: 3rem;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.toggle-switch {
+  display: flex; /* Add this line to make the toggle and label flex items */
+  align-items: center; /* Add this line to vertically center the toggle and label */
+  position: relative;
+  margin-left: auto;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--dark-toggle-bg);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+/* ================================================= */
+/* Center Title Text */
+/* ================================================= */
 .center-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: var(--logo-text);
   font-size: 3em;
   text-align: center;
 }
 
+/* ================================================= */
+/* Overlay Menu */
+/* ================================================= */
 .overlay-item {
   display: flex;
   position: absolute;
@@ -100,7 +256,6 @@ nav a {
   padding: 15px;
   margin: 0px auto;
   transform: translateX(-50%);
-  color: white;
   text-align: center;
 }
 
@@ -108,14 +263,17 @@ nav a {
   text-decoration: none;
   text-align: center;
   margin: 5px 0;
-  color: lightgrey;
+  color: var(--menu-text);
   font-size: 1.15em;
 }
 
 .menu-text a:hover {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--hover-text);
 }
 
+/* ================================================= */
+/* Overlay Menu - Dropdown */
+/* ================================================= */
 .dropdown-content {
   position: absolute;
   display: none;
@@ -125,7 +283,7 @@ nav a {
   left: 0;
   right: 0;
   padding: 12px;
-  background-color: #f9f9f9;
+  background-color: var(--sub-color);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   opacity: 0;
@@ -137,26 +295,29 @@ nav a {
 }
 
 .dropdown-content p {
-  color: black;
+  color: var(--sub-text);
   font-size: 1.2rem;
 }
 
+/* ================================================= */
+/* Main */
+/* ================================================= */
 .main-text {
   text-align: center;
   padding-top: 45px;
   padding: 20px;
-  color: lightgrey;
+  color: var(--muted-text);
   font-size: 1.2em;
 }
 
 .main-text h3 {
-  color: lightgray;
+  color: var(--muted-text);
   font-weight: 400;
 }
 
 .main-text h1 {
   text-align: center;
-  color: white;
+  color: var(--primary-text);
   font-weight: 500;
 }
 
@@ -166,18 +327,23 @@ nav a {
   padding: 10px;
 }
 
+/* ================================================= */
+/* Cards */
+/* ================================================= */
 .cards::before {
   content: "";
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.158), rgba(0, 0, 0, 0.849));
+  background: var(--card-linear-gradient);
   position: absolute;
   border-radius: 12px;
 }
 
 .cards {
+  border-radius: 12px;
+  background: var(--card-color);
   position: relative;
   overflow: hidden;
   flex: 0 0 calc(33.333% - 10%);
@@ -203,7 +369,7 @@ nav a {
 }
 
 .cards:hover {
-  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--card-hover);
   transform: scale(1.05);
 }
 
@@ -216,19 +382,22 @@ nav a {
   bottom: 0;
   left: 0;
   right: 0;
-  color: rgba(255, 255, 255, 0.995);
+  color: var(--card-text);
 }
 
-.box-aboutme {
+/* ================================================= */
+/* About Us */
+/* ================================================= */
+.box-aboutus {
   position: relative;
   overflow: hidden;
   width: 100%;
-  margin-top: 70px;
+  margin-top: var(--box-aboutus-top);
   padding-bottom: 150px;
-  background-color: white;
+  /* background-color: var(--sub-color); */
 }
 
-.container-aboutme {
+.container-aboutus {
   position: relative;
   white-space: normal;
   height: auto;
@@ -237,37 +406,40 @@ nav a {
   z-index: 1;
 }
 
-.box-aboutme h1,
+.box-aboutus h1,
 p,
 h3,
 ul {
-  color: rgba(0, 0, 0, 0.99);
+  color: var(--box-aboutus-text);
 }
 
-.box-aboutme h1 {
+.box-aboutus h1 {
   text-align: center;
   padding-top: 2%;
   font-weight: 600;
   font-size: 1.8rem;
 }
 
-.box-aboutme h3 {
+.box-aboutus h3 {
   font-size: 1.4rem;
   font-weight: 600;
 }
 
-.box-aboutme p {
+.box-aboutus p {
   font-size: 1.2rem;
   font-weight: 400;
 }
 
+/* ================================================= */
+/* Waves */
+/* ================================================= */
 .waves {
   position: absolute;
   height: 325px;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.99);
+  background-color: var(--wave);
   transition: 500ms;
 }
 
@@ -283,19 +455,23 @@ ul {
 }
 
 .waves::before {
-  background: rgb(255, 255, 255);
+  background: var(--wave-shadow);
   border-radius: 44%;
   animation: waves 8s linear infinite;
 }
 
 .waves::after {
-  background: rgba(255, 255, 255, 0.596); /* Don't touch */
+  background: var(--box-aboutus); /* Don't touch */
   border-radius: 44%;
   animation: waves 15s linear infinite;
 }
 
+/* ================================================= */
+/* Footer */
+/* ================================================= */
 .footer {
-  color: white;
+  color: var(--primary-text);
+  background-color: var(--wave);
 }
 
 .footer-container {
@@ -318,7 +494,7 @@ ul {
 }
 
 .col-footer p {
-  color: lightgray;
+  color: var(--muted-text);
   font-weight: 300;
 }
 
@@ -335,7 +511,7 @@ ul {
 
 .col-footer-middle h3 {
   height: 34px;
-  color: lightgray;
+  color: var(--muted-text);
   font-size: 1.1rem;
   font-weight: 300;
 }
@@ -360,12 +536,18 @@ ul {
   margin-right: 15px;
 }
 
+/* ================================================= */
+/* Footer - Line */
+/* ================================================= */
 .border-footer-line {
   margin: var(--border-footer);
   border-top-width: 1px;
   border-top-color: rgba(255, 255, 255, 0);
 }
 
+/* ================================================= */
+/* bottom Footer */
+/* ================================================= */
 .copyrights {
   display: flex;
   align-items: flex-end;
@@ -373,7 +555,7 @@ ul {
   padding: var(--border-footer);
   padding-top: 1rem;
   padding-bottom: 0.3rem;
-  color: lightgray;
+  color: var(--muted-text);
   font-size: 0.8rem;
   font-weight: 400;
 }
@@ -426,15 +608,21 @@ ul {
   }
 }
 
+/* ================================================= */
+/* 1235px + */
+/* ================================================= */
 @media screen and (max-width: 1235px) {
   .dropdown-content {
     top: -270%;
   }
-  .container-aboutme {
+  .container-aboutus {
     max-width: 90%;
   }
 }
 
+/* ================================================= */
+/* 1000px + */
+/* ================================================= */
 @media screen and (max-width: 1000px) {
   .header {
     height: 45vh;
@@ -460,7 +648,7 @@ ul {
 
   .cards::before {
     background: radial-gradient(rgba(0, 0, 0, 0.37), rgba(0, 0, 0, 0.753));
-    height: 90%;
+    /* height: 90%; */
   }
 
   .cards {
@@ -468,9 +656,9 @@ ul {
     margin-bottom: 20px;
   }
 
-  .cards img {
+  /* .cards img {
     height: 90%;
-  }
+  } */
 
   .cards p {
     width: 100%;
@@ -481,7 +669,7 @@ ul {
     font-size: 1.9em;
   }
 
-  .box-aboutme {
+  .box-aboutus {
     padding-bottom: 100px;
   }
 
@@ -490,6 +678,9 @@ ul {
   }
 }
 
+/* ================================================= */
+/* 730px + */
+/* ================================================= */
 @media screen and (max-width: 730px) {
   .dropdown-content p {
     font-size: 1.2rem;
@@ -516,12 +707,18 @@ ul {
   }
 }
 
+/* ================================================= */
+/* 670px + */
+/* ================================================= */
 @media screen and (max-width: 670px) {
   .waves {
     height: 17%;
   }
 }
 
+/* ================================================= */
+/* 560px + */
+/* ================================================= */
 @media screen and (max-width: 560px) {
   .center-text {
     font-size: 2.5em;
@@ -534,6 +731,9 @@ ul {
   }
 }
 
+/* ================================================= */
+/* 480px + */
+/* ================================================= */
 @media screen and (max-width: 480px) {
   .logo span {
     font-size: 1.2rem;
@@ -555,8 +755,9 @@ ul {
   }
 }
 
+/* ================================================= */
 /* Animation Effect */
-
+/* ================================================= */
 /* --------fadeIn-------- */
 @keyframes fadeIn {
   from {
@@ -569,8 +770,6 @@ ul {
   }
 }
 
-/* --------fadeInUp-------- */
-
 /* --------typing-------- */
 @keyframes typing {
   from {
@@ -581,6 +780,7 @@ ul {
   }
 }
 
+/* --------waves-------- */
 @keyframes waves {
   0% {
     transform: translate(-50%, -75%) rotate(0deg);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,16 +9,16 @@
       rel="stylesheet"
     />
     <link
-      rel="Icon"
-      href="{{ url_for('static', filename='assets/images/icons/sci_logo.png') }}"
-    />
-    <link
       rel="stylesheet"
       href="{{ url_for('static', filename='styles/style.css') }}"
     />
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='styles/effects.css') }}"
+    />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
     />
   </head>
   <body>
@@ -40,54 +40,79 @@
             <span>SSRU - Water Monitoring</span>
           </div>
         </a>
+        <div class="toggle-label">
+          <label class="toggle-switch">
+            <input type="checkbox" id="themeToggle" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <script>
+          const themeToggle = document.getElementById("themeToggle");
+
+          // Check if the user has a preferred theme in local storage
+          const storedTheme = localStorage.getItem("theme");
+          if (storedTheme) {
+            document.documentElement.setAttribute("data-theme", storedTheme);
+            themeToggle.checked = storedTheme === "dark";
+          }
+
+          themeToggle.addEventListener("change", () => {
+            const selectedTheme = themeToggle.checked ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", selectedTheme);
+            // Save the selected theme in local storage
+            localStorage.setItem("theme", selectedTheme);
+          });
+        </script>
       </nav>
       <div class="center-text">คุณภาพน้ำตำบลขนาบนาก อ.ปากพนัง</div>
-      <div class="overlay-item">
-        <div class="menu-text">
-          <a href="https://th.wikipedia.org/wiki/%E0%B8%99%E0%B9%89%E0%B8%B3"
-            >น้ำ</a
-          >
-          <div class="dropdown-content">
-            <p>
-              น้ำเป็นปัจจัยที่สำคัญของสิ่งมีชีวิต การเพิ่มของประชากร
-              การขยายตัวของชุมชนเมือง และการพัฒนาทางด้านอุตสาหกรรม
-              มีผลทำให้มีการใช้น้ำปริมาณมาก ได้ก่อให้เกิดปัญหาคุณภาพน้ำ และ
-              แม่น้ำลำคลอง และชายฝั่งทะเล รวมถึงความเป็นอยู่ของมนุษย์
-            </p>
+      <div class="block moveUp animated">
+        <div class="overlay-item">
+          <div class="menu-text">
+            <a href="https://th.wikipedia.org/wiki/%E0%B8%99%E0%B9%89%E0%B8%B3"
+              >น้ำ</a
+            >
+            <div class="dropdown-content">
+              <p>
+                น้ำเป็นปัจจัยที่สำคัญของสิ่งมีชีวิต การเพิ่มของประชากร
+                การขยายตัวของชุมชนเมือง และการพัฒนาทางด้านอุตสาหกรรม
+                มีผลทำให้มีการใช้น้ำปริมาณมาก ได้ก่อให้เกิดปัญหาคุณภาพน้ำ และ
+                แม่น้ำลำคลอง และชายฝั่งทะเล รวมถึงความเป็นอยู่ของมนุษย์
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="menu-text">
-          <a
-            href="https://th.wikipedia.org/wiki/%E0%B8%A1%E0%B8%A5%E0%B8%9E%E0%B8%B4%E0%B8%A9%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B8%99%E0%B9%89%E0%B8%B3"
-            >มลพิษทางน้ำ</a
-          >
-          <div class="dropdown-content">
-            <p>
-              การปนเปื้อนของแหล่งน้ำ
-              สาเหตุส่วนใหญ่เกิดจากการใช้ประโยชน์จากกิจกรรมต่างๆของมนุษย์
-              ทั้งน้ำทิ้งจากแหล่งชุมชน และโรงงานอุตสาหกรรม
-              ทำให้คุณภาพของน้ำเปลี่ยนแปลงไปในทางที่เสื่อมโทรมลง
-              ยังผลให้การใช้ประโยชน์จากน้ำนั้นไม่ได้
-            </p>
+          <div class="menu-text">
+            <a
+              href="https://th.wikipedia.org/wiki/%E0%B8%A1%E0%B8%A5%E0%B8%9E%E0%B8%B4%E0%B8%A9%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B8%99%E0%B9%89%E0%B8%B3"
+              >มลพิษทางน้ำ</a
+            >
+            <div class="dropdown-content">
+              <p>
+                การปนเปื้อนของแหล่งน้ำ
+                สาเหตุส่วนใหญ่เกิดจากการใช้ประโยชน์จากกิจกรรมต่างๆของมนุษย์
+                ทั้งน้ำทิ้งจากแหล่งชุมชน และโรงงานอุตสาหกรรม
+                ทำให้คุณภาพของน้ำเปลี่ยนแปลงไปในทางที่เสื่อมโทรมลง
+                ยังผลให้การใช้ประโยชน์จากน้ำนั้นไม่ได้
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="menu-text">
-          <a href="https://en.wikipedia.org/wiki/Water_quality">คุณภาพน้ำ</a>
-          <div class="dropdown-content">
-            <p>
-              การตรวจสอบคุณภาพน้ำเป็นพื้นฐานของการจัดการน้ำอย่างยั่งยืน
-              ให้ข้อมูลที่จำเป็น ซึ่งระบุลักษณะทางกายภาพ เคมี
-              และหรือสถานะทางชีววิทยาของทรัพยากรน้ำ
-            </p>
+          <div class="menu-text">
+            <a href="https://en.wikipedia.org/wiki/Water_quality">คุณภาพน้ำ</a>
+            <div class="dropdown-content">
+              <p>
+                การตรวจสอบคุณภาพน้ำเป็นพื้นฐานของการจัดการน้ำอย่างยั่งยืน
+                ให้ข้อมูลที่จำเป็น ซึ่งระบุลักษณะทางกายภาพ เคมี
+                และหรือสถานะทางชีววิทยาของทรัพยากรน้ำ
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="main-text">
-      <div class="block animatable fadeInUp">
+      <div class="block fadeIn animated">
         <h3>คุณภาพน้ำในตําบลขนาบนาค อําเภอปากพนัง จังหวัดนครศรีธรรมราช</h3>
       </div>
-      <div class="block animatable fadeInUp">
+      <div class="block fadeIn animated">
         <h1>โดย 4 สถานีตรวจวัด</h1>
       </div>
     </div>
@@ -132,8 +157,8 @@
         });
       </script>
     </div>
-    <div class="box-aboutme">
-      <div class="container-aboutme">
+    <div class="box-aboutus">
+      <div class="container-aboutus">
         <div class="block animatable fadeInUp">
           <h1>เกี่ยวกับเรา</h1>
         </div>
