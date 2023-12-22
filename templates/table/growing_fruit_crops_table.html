@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ดัชนีคุณภาพน้ำสําหรับปลูกพืชผลไม้</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Kanit"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='assets/images/icons/sci_logo.png')}}"
+    />
+    <style>
+      /* ================================================= */
+      /* body */
+      /* ================================================= */
+      body {
+        font-family: "Poppins", "Kanit", sans-serif !important;
+        letter-spacing: 0.025rem !important;
+        margin: 0;
+        padding: 20px 80px;
+      }
+
+      .box-header {
+        padding-top: 60px;
+        padding-bottom: 40px;
+        h2 {
+          font-size: 2.9rem;
+          font-weight: 600;
+          word-break: break-word;
+          align-items: center;
+        }
+        h3 {
+          font-size: 2rem;
+          font-weight: 600;
+          word-break: break-word;
+          align-items: center;
+        }
+      }
+
+      /* ================================================= */
+      /* table */
+      /* ================================================= */
+      .box-table {
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-bottom: 20px;
+          th {
+            font-size: 1.8rem;
+            font-weight: 600;
+            /* background-color: #ffc2d1; */
+            background-color: #283551;
+            color: white;
+          }
+          td {
+            font-size: 1.6rem;
+          }
+          td:nth-child(1) {
+            font-size: 1.5rem;
+          }
+        }
+      }
+
+      th,
+      td {
+        border: 1px solid #505050;
+        padding: 8px;
+        text-align: left;
+      }
+
+      /* ================================================= */
+      /* 1000px */
+      /* ================================================= */
+      @media only screen and (max-width: 1000px) {
+        body {
+          padding: 20px 40px;
+        }
+        .box-table {
+          table {
+            th {
+              font-size: 1.5rem;
+            }
+            td {
+              font-size: 1.3rem;
+            }
+            td:nth-child(1) {
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+
+      /* ================================================= */
+      /* 750px */
+      /* ================================================= */
+      @media only screen and (max-width: 750px) {
+        body {
+          background-color: #f2f2f2;
+          padding: 0;
+        }
+
+        .box-header {
+          padding: 20px;
+          padding-top: 1px;
+          background-color: #283551;
+          h2 {
+            color: white;
+            padding: 20px 0;
+          }
+          h3 {
+            color: white;
+          }
+        }
+
+        .box-table {
+          padding: 20px 15px;
+
+          table {
+            border: 0;
+
+            thead {
+              display: none;
+            }
+
+            tr {
+              margin-bottom: 70px;
+              display: block;
+              border-bottom: 2px solid #ddd;
+            }
+
+            td {
+              font-size: 1.4rem;
+              padding: 20px;
+              display: block;
+              text-align: right;
+              background-color: #ffffff;
+              border-bottom: 1px dotted #ddd;
+            }
+          }
+        }
+        th,
+        td {
+          border: 1px solid #ddd;
+        }
+        td:nth-child(1) {
+          color: #2d4a86;
+        }
+
+        table td::before {
+          content: attr(data-label);
+          float: left;
+          font-weight: bold;
+        }
+      }
+
+      /* ================================================= */
+      /* 450px */
+      /* ================================================= */
+      @media only screen and (max-width: 450px) {
+        .box-header {
+          h3 {
+            font-size: 1.6rem;
+          }
+        }
+
+        .box-table {
+          table {
+            td {
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+
+      /* ================================================= */
+      /* 380px */
+      /* ================================================= */
+      @media only screen and (max-width: 380px) {
+        td {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-header">
+      <h2 style="text-align: center">ดัชนีคุณภาพน้ำสำหรับปลูกพืชผลไม้</h2>
+      <h3 style="text-align: center">
+        การเฝ้าระวังการเปลี่ยนแปลงคุณภาพน้ําสําหรับกลุ่มผู้เลี้ยงสัตว์น้ํา
+        และกลุ่มเกษตรพืชผลไม้
+      </h3>
+    </div>
+    <div class="box-table">
+      <table>
+        <thead>
+          <tr>
+            <th>ช่วงค่า pH</th>
+            <th>ความเหมาะสมสำหรับการเพาะเลี้ยงสัตว์น้ำ</th>
+            <th>ผลกระทบ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="ช่วงค่า pH">pH &lt; 4.0</td>
+            <td data-label="ความเหมาะสม">อันตราย</td>
+            <td data-label="ผลกระทบ">อาจทําให้ปลาตายได้</td>
+          </tr>
+          <tr>
+            <td data-label="ช่วงค่า pH">pH 4.0-6.0</td>
+            <td data-label="ความเหมาะสม">ไม่เหมาะสม</td>
+            <td data-label="ผลกระทบ">
+              บางชนิดของปลาอาจรอดชีวิตได้ แต่ผลผลิตจะต่ำ การเจริญเติบโตช้า
+              และการ สืบพันธุ์หยุดชะงัก
+            </td>
+          </tr>
+          <tr>
+            <td data-label="ช่วงค่า pH">pH 6.5-9.0</td>
+            <td data-label="ความเหมาะสม">เหมาะสม</td>
+            <td data-label="ผลกระทบ">
+              ช่วงที่เหมาะสมสำหรับการเพาะเลี้ยงสัตว์น้ำ
+            </td>
+          </tr>
+          <tr>
+            <td data-label="ช่วงค่า pH">pH 9.0-11.0</td>
+            <td data-label="ความเหมาะสม">ไม่เหมาะสมสำหรับการอยู่ในเวลานาน</td>
+            <td data-label="ผลกระทบ">อาจเป็นพิษต่อชีวิตของสัตว์น้ำ</td>
+          </tr>
+          <tr>
+            <td data-label="ช่วงค่า pH">pH &gt; 11.0</td>
+            <td data-label="ความเหมาะสม">พิษ</td>
+            <td data-label="ผลกระทบ">มีพิษต่อปลา</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

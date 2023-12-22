@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>คุณภาพน้ำสำหรับการเพาะเลี้ยงปลาในกระชัง</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Kanit"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='assets/images/icons/sci_logo.png')}}"
+    />
+    <style>
+      /* ================================================= */
+      /* body */
+      /* ================================================= */
+      body {
+        font-family: "Poppins", "Kanit", sans-serif !important;
+        letter-spacing: 0.025rem !important;
+        margin: 0;
+        padding: 20px 80px;
+      }
+
+      .box-header {
+        padding-top: 80px;
+        padding-bottom: 60px;
+        h2 {
+          font-size: 2.9rem;
+          font-weight: 600;
+          word-break: break-word;
+          align-items: center;
+        }
+      }
+
+      /* ================================================= */
+      /* table */
+      /* ================================================= */
+      .box-table {
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-bottom: 20px;
+          th {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background-color: #a3b73e;
+            color: white;
+          }
+          td {
+            font-size: 1.6rem;
+          }
+        }
+      }
+
+      th,
+      td {
+        border: 1px solid #505050;
+        padding: 8px;
+        text-align: left;
+      }
+
+      /* ================================================= */
+      /* 900px */
+      /* ================================================= */
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 20px 40px;
+        }
+        .box-table {
+          table {
+            th {
+              font-size: 1.7rem;
+            }
+            td {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+
+      /* ================================================= */
+      /* 600px */
+      /* ================================================= */
+      @media only screen and (max-width: 600px) {
+        body {
+          background-color: #f2f2f2;
+          padding: 0;
+        }
+
+        .box-header {
+          background-color: #a3b73e;
+          h2 {
+            color: white;
+            padding: 20px 0;
+          }
+        }
+
+        .box-table {
+          padding: 20px 15px;
+
+          table {
+            border: 0;
+
+            thead {
+              display: none;
+            }
+
+            tr {
+              margin-bottom: 70px;
+              display: block;
+              border-bottom: 2px solid #ddd;
+            }
+
+            td {
+              font-size: 1.4rem;
+              padding: 20px;
+              display: block;
+              text-align: right;
+              background-color: #ffffff;
+              border-bottom: 1px dotted #ddd;
+            }
+          }
+        }
+        th,
+        td {
+          border: 1px solid #ddd;
+        }
+        td:nth-child(1) {
+          color: #789000;
+        }
+
+        table td::before {
+          content: attr(data-label);
+          float: left;
+          font-weight: bold;
+        }
+      }
+
+      /* ================================================= */
+      /* 450px */
+      /* ================================================= */
+      @media only screen and (max-width: 450px) {
+        .box-table {
+          table {
+            td {
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+
+      /* ================================================= */
+      /* 380px */
+      /* ================================================= */
+      @media only screen and (max-width: 380px) {
+        td {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-header">
+      <h2 style="text-align: center">คุณภาพน้ำสำหรับการเพาะเลี้ยงปลาในกระชัง</h2>
+    </div>
+    <div class="box-table">
+      <table>
+        <thead>
+          <tr>
+            <th>คุณสมบัตินํ้า</th>
+            <th>ค่าที่เหมาะสม</th>
+            <th>ผลกระทบหากมีค่าไม่เหมาะสมสม</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="คุณสมบัตินํ้า">อุณหภูมิ</td>
+            <td data-label="ค่าที่เหมาะสม">19-29 °C</td>
+            <td data-label="หากค่าไม่เหมาะสม">
+              อยู่ได้ไม่นานและอาจตายได้ ไม่กินอาหาร โตช้า ไม่วางไข่
+            </td>
+          </tr>
+          <tr>
+            <td data-label="คุณสมบัตินํ้า">ความเค็ม</td>
+            <td data-label="ค่าที่เหมาะสม">&lt;10 ppt</td>
+            <td data-label="หากค่าไม่เหมาะสม">โตช้า เครียด</td>
+          </tr>
+          <tr>
+            <td data-label="คุณสมบัตินํ้า">ความเป็นกรด-ด่าง</td>
+            <td data-label="ค่าที่เหมาะสม">6.5-8.5</td>
+            <td data-label="หากค่าไม่เหมาะสม">โตช้า อ่อนแอ</td>
+          </tr>
+          <tr>
+            <td data-label="คุณสมบัตินํ้า">ปริมาณออกซิเจน</td>
+            <td data-label="ค่าที่เหมาะสม">&gt;1 ppm</td>
+            <td data-label="หากค่าไม่เหมาะสม">
+              ปลาลอยหัว เครียด โตช้า
+            </td>
+          </tr>
+          <tr>
+            <td data-label="คุณสมบัตินํ้า">แอมโมเนียและไนไตรท์</td>
+            <td data-label="ค่าที่เหมาะสม">&lt;0.02 ppm</td>
+            <td data-label="หากค่าไม่เหมาะสม">เป็นพิษ ทําให้ปลาตาย</td>
+          </tr>
+          <tr>
+            <td data-label="คุณสมบัตินํ้า">ไฮโดรเจนซัลไฟด์</td>
+            <td data-label="ค่าที่เหมาะสม">&lt;0.002 ppm</td>
+            <td data-label="หากค่าไม่เหมาะสม">เป็นพิษ ทําให้ปลาตาย</td>
+          </tr>
+          <tr>
+            <td data-label="คุณสมบัตินํ้า">คาร์บอนไดออกไซด์</td>
+            <td data-label="ค่าที่เหมาะสม">&lt;70 ppm</td>
+            <td data-label="หากค่าไม่เหมาะสม">เป็นพิษ ทําให้ปลาตาย</td>
+          </tr>
+          <tr>
+            <td data-label="คุณสมบัตินํ้า">สารแขวนลอยและตะกอน</td>
+            <td data-label="ค่าที่เหมาะสม">มากเกินไป</td>
+            <td data-label="หากค่าไม่เหมาะสม">
+              ออกซิเจนต่ํา แอมโมเนีย/ คาร์บอนไดออกไซด์/ไฮโดรเจนซัลไฟด์ สูง
+            </td>
+          </tr>
+          <tr>
+            <td data-label="คุณสมบัตินํ้า">ปริมาณแพลงตอนพืช</td>
+            <td data-label="ค่าที่เหมาะสม">มากเกินไป</td>
+            <td data-label="หากค่าไม่เหมาะสม">
+              ออกซิเจนต่ํา แอมโมเนีย/ คาร์บอนไดออกไซด์/ ไฮโดรเจนซัลไฟด์ สูง
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

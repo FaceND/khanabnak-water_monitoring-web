@@ -30,6 +30,22 @@ def get_station():
         BOD=station_data["BOD"],
     )
 
+@app.route('/coastal_aquaculture_table', methods=['GET'])
+def coastal_aquaculture_table():
+    return render_template('/table/coastal_aquaculture_table.html')
+
+@app.route('/growing_fruit_table', methods=['GET'])
+def growing_fruit_table():
+    return render_template('/table/growing_fruit_crops_table.html')
+
+@app.route('/white_shrimp_table', methods=['GET'])
+def white_shrimp_table():
+    return render_template('/table/white_shrimp_table.html')
+
+@app.route('/raising_fish_cage_table', methods=['GET'])
+def raising_fish_table():
+    return render_template('/table/raising_fish_cage_table.html')
+
 if __name__  == '__main__':
     print("\033[92m√\033[0m Compiled successfully.")
     serve(app, host="0.0.0.0", port=8000)

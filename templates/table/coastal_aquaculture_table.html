@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ดัชนีคุณภาพน้ำสําหรับเพาะเลี้ยงสัตว์น้ำชายฝั่ง</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Kanit"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='assets/images/icons/sci_logo.png')}}"
+    />
+    <style>
+      /* ================================================= */
+      /* body */
+      /* ================================================= */
+      body {
+        font-family: "Poppins", "Kanit", sans-serif !important;
+        letter-spacing: 0.025rem !important;
+        margin: 0;
+        padding: 20px 80px;
+      }
+
+      .box-header {
+        padding-top: 80px;
+        padding-bottom: 60px;
+        h2 {
+          font-size: 2.9rem;
+          font-weight: 600;
+          word-break: break-word;
+          align-items: center;
+        }
+      }
+
+      /* ================================================= */
+      /* table */
+      /* ================================================= */
+      .box-table {
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-bottom: 20px;
+          th {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background-color: #e53a64;
+            color: white;
+          }
+          td {
+            font-size: 1.6rem;
+          }
+        }
+      }
+
+      th,
+      td {
+        border: 1px solid #505050;
+        padding: 8px;
+        text-align: left;
+      }
+
+      /* ================================================= */
+      /* 900px */
+      /* ================================================= */
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 20px 40px;
+        }
+        .box-table {
+          table {
+            th {
+              font-size: 1.7rem;
+            }
+            td {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+
+      /* ================================================= */
+      /* 600px */
+      /* ================================================= */
+      @media only screen and (max-width: 600px) {
+        body {
+          background-color: #f2f2f2;
+          padding: 0;
+        }
+
+        .box-header {
+          background-color: #e53a64;
+          h2 {
+            color: white;
+            padding: 20px 0;
+          }
+        }
+
+        .box-table {
+          padding: 20px 15px;
+
+          table {
+            border: 0;
+
+            thead {
+              display: none;
+            }
+
+            tr {
+              margin-bottom: 70px;
+              display: block;
+              border-bottom: 2px solid #ddd;
+            }
+
+            td {
+              font-size: 1.4rem;
+              padding: 20px;
+              display: block;
+              text-align: right;
+              background-color: #ffffff;
+              border-bottom: 1px dotted #ddd;
+            }
+          }
+        }
+        th,
+        td {
+          border: 1px solid #ddd;
+        }
+        td:nth-child(1) {
+          color: #ff3768;
+        }
+
+        table td::before {
+          content: attr(data-label);
+          float: left;
+          font-weight: bold;
+        }
+      }
+
+      /* ================================================= */
+      /* 450px */
+      /* ================================================= */
+      @media only screen and (max-width: 450px) {
+        .box-table {
+          table {
+            td {
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+
+      /* ================================================= */
+      /* 380px */
+      /* ================================================= */
+      @media only screen and (max-width: 380px) {
+        td {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-header">
+      <h2 style="text-align: center">
+        ดัชนีคุณภาพน้ำสําหรับเพาะเลี้ยงสัตว์น้ำชายฝั่ง
+      </h2>
+    </div>
+    <div class="box-table">
+      <table>
+        <thead>
+          <tr>
+            <th>ดัชนีคุณภาพน้ํา</th>
+            <th>ค่าที่ควรเฝ้าระวัง</th>
+            <th>หน่วย</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="ดัชนีคุณภาพน้ํา">อุณหภูมิ(Temp)</td>
+            <td data-label="ค่าที่ควรเฝ้าระวัง">28-32</td>
+            <td data-label="หน่วย">°C</td>
+          </tr>
+          <tr>
+            <td data-label="ดัชนีคุณภาพน้ํา">ความเป็นกรดและด่าง (pH)</td>
+            <td data-label="ค่าที่ควรเฝ้าระวัง">7.0-8.3</td>
+            <td data-label="หน่วย">pH</td>
+          </tr>
+          <tr>
+            <td data-label="ดัชนีคุณภาพน้ํา">ความเค็ม (Salinity)</td>
+            <td data-label="ค่าที่ควรเฝ้าระวัง">0.5-35</td>
+            <td data-label="หน่วย">ppt</td>
+          </tr>
+          <tr>
+            <td data-label="ดัชนีคุณภาพน้ํา">แอมโมเนีย (NH3-N)</td>
+            <td data-label="ค่าที่ควรเฝ้าระวัง">&le; 0.4</td>
+            <td data-label="หน่วย">mg/l</td>
+          </tr>
+          <tr>
+            <td data-label="ดัชนีคุณภาพน้ํา">ไนไตรท์ (NO2)</td>
+            <td data-label="ค่าที่ควรเฝ้าระวัง">&lt; 0.1</td>
+            <td data-label="หน่วย">mg/l</td>
+          </tr>
+          <tr>
+            <td data-label="ดัชนีคุณภาพน้ํา">ไนเตรท (NO3)</td>
+            <td data-label="ค่าที่ควรเฝ้าระวัง">&lt; 5.0</td>
+            <td data-label="หน่วย">mg/l</td>
+          </tr>
+          <tr>
+            <td data-label="ดัชนีคุณภาพน้ํา">ออกซิเจนละลายน้ำ (DO)</td>
+            <td data-label="ค่าที่ควรเฝ้าระวัง">&gt; 5</td>
+            <td data-label="หน่วย">mg/l</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
