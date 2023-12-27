@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, send_from_directory
-from water_monitoring import get_station_data
+from flask import Flask, render_template, request, send_from_directory, jsonify
+from water_monitoring import get_station_data, get_all_station_data
 from waitress import serve
 import os
 import warnings
@@ -12,7 +12,7 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static/assets/images/icons'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/')
-@app.route('/home', methods=['POST', 'GET'])
+@app.route('/home')
 def home():
     return render_template('home.html')
 
@@ -29,20 +29,25 @@ def get_station():
         oxygen=station_data["oxygen"],
         BOD=station_data["BOD"],
     )
+    
+@app.route('/api', methods=['GET'])
+def api_get_all_station_data():
+    app.json.sort_keys = False
+    return jsonify(get_all_station_data())
 
-@app.route('/coastal_aquaculture_table', methods=['GET'])
+@app.route('/coastal_aquaculture_table')
 def coastal_aquaculture_table():
     return render_template('/table/coastal_aquaculture_table.html')
 
-@app.route('/growing_fruit_table', methods=['GET'])
+@app.route('/growing_fruit_table')
 def growing_fruit_table():
     return render_template('/table/growing_fruit_crops_table.html')
 
-@app.route('/white_shrimp_table', methods=['GET'])
+@app.route('/white_shrimp_table')
 def white_shrimp_table():
     return render_template('/table/white_shrimp_table.html')
 
-@app.route('/raising_fish_cage_table', methods=['GET'])
+@app.route('/raising_fish_cage_table')
 def raising_fish_table():
     return render_template('/table/raising_fish_cage_table.html')
 

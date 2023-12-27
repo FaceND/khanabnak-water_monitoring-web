@@ -29,5 +29,12 @@ def get_station_data(station_name):
             cards_data = soup.find_all('div',{'class':os.getenv("CLASS_ELEMENT")})
             for key, data in zip(list(station_data.keys())[1:], cards_data):
                 station_data[key] = data.get_text().split(' ').pop(0)
-        station_data['title'] = stations_list_TH[station_name]
+            station_data['title'] = stations_list_TH.get(station_name, None)
     return station_data
+
+def get_all_station_data():
+    all_station_data_list = []
+    for station_name in stations_url.keys():
+        station_data = get_station_data(station_name)
+        all_station_data_list.append(station_data)
+    return all_station_data_list
