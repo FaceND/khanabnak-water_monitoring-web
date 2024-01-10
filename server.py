@@ -31,9 +31,12 @@ def get_station():
     )
     
 @app.route('/api', methods=['GET'])
-def api_get_all_station_data():
+def api_get_all_station_data_route():
     app.json.sort_keys = False
-    return jsonify(get_all_station_data())
+    data = get_all_station_data()
+    response = jsonify(data)
+    response.headers['Content-Type'] = 'application/json; charset=utf-8'
+    return response
 
 @app.route('/coastal_aquaculture_table')
 def coastal_aquaculture_table():
