@@ -3,9 +3,13 @@ from water_monitoring import get_station_data, get_all_station_data
 from waitress import serve
 import os
 import warnings
+from flask_cors import CORS
 
 warnings.filterwarnings("ignore")
 app = Flask(__name__)
+
+# Allow CORS origin resource sharing
+CORS(app)
 
 @app.route("/favicon.ico")
 def favicon():
@@ -31,8 +35,9 @@ def get_station():
     )
     
 @app.route('/api', methods=['GET'])
-def api_get_all_station_data_route():
+def api_get_all_station_data():
     app.json.sort_keys = False
+    app.config['JSON_AS_ASCII'] = False
     data = get_all_station_data()
     response = jsonify(data)
     response.headers['Content-Type'] = 'application/json; charset=utf-8'
